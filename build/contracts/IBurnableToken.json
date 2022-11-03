@@ -1,0 +1,306 @@
+{
+  "contractName": "IBurnableToken",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "burn",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IBurnableToken.sol\":\"IBurnableToken\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":20},\"remappings\":[]},\"sources\":{\"project:/contracts/IBurnableToken.sol\":{\"keccak256\":\"0x6202a615fd694eca200f5dd867c79673787ae21b3f82acc3ec6ea045afdcf391\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://e8f1d6c37acad9fc00259005796c5529c315153634aabd4ab40c9328ea42800e\",\"dweb:/ipfs/QmPne3p7izRmoT8LysyPGf2dLNAy2Ne8Nemwns5bgNUjDb\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.10;\n\ninterface IBurnableToken {\n    function burn(address user, uint256 amount) external;\n}",
+  "sourcePath": "/Users/chrismanning/Desktop/SolidityRepo/Production/XEN-crypto/contracts/IBurnableToken.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IBurnableToken.sol",
+    "exportedSymbols": {
+      "IBurnableToken": [
+        3453
+      ]
+    },
+    "id": 3454,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3445,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IBurnableToken",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 3453,
+        "linearizedBaseContracts": [
+          3453
+        ],
+        "name": "IBurnableToken",
+        "nameLocation": "68:14:4",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "9dc29fac",
+            "id": 3452,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "burn",
+            "nameLocation": "98:4:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3450,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3447,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "111:4:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3452,
+                  "src": "103:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3446,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "103:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3449,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "125:6:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3452,
+                  "src": "117:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3448,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "117:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "102:30:4"
+            },
+            "returnParameters": {
+              "id": 3451,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "141:0:4"
+            },
+            "scope": 3453,
+            "src": "89:53:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3454,
+        "src": "58:86:4",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:112:4"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/IBurnableToken.sol",
+    "exportedSymbols": {
+      "IBurnableToken": [
+        3453
+      ]
+    },
+    "id": 3454,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3445,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:4"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IBurnableToken",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 3453,
+        "linearizedBaseContracts": [
+          3453
+        ],
+        "name": "IBurnableToken",
+        "nameLocation": "68:14:4",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "9dc29fac",
+            "id": 3452,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "burn",
+            "nameLocation": "98:4:4",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3450,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3447,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "111:4:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3452,
+                  "src": "103:12:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3446,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "103:7:4",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3449,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "125:6:4",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3452,
+                  "src": "117:14:4",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3448,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "117:7:4",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "102:30:4"
+            },
+            "returnParameters": {
+              "id": 3451,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "141:0:4"
+            },
+            "scope": 3453,
+            "src": "89:53:4",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3454,
+        "src": "58:86:4",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:112:4"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-10-25T16:34:42.851Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

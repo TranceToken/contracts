@@ -1,0 +1,575 @@
+{
+  "contractName": "IRankedMintingToken",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "rewardAmount",
+          "type": "uint256"
+        }
+      ],
+      "name": "MintClaimed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "user",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "term",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "rank",
+          "type": "uint256"
+        }
+      ],
+      "name": "RankedClaimed",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "claimMintReward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rewardAmount\",\"type\":\"uint256\"}],\"name\":\"MintClaimed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"term\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"rank\",\"type\":\"uint256\"}],\"name\":\"RankedClaimed\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"claimMintReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/IRankedMintingToken.sol\":\"IRankedMintingToken\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":20},\"remappings\":[]},\"sources\":{\"project:/contracts/IRankedMintingToken.sol\":{\"keccak256\":\"0x5c44334af23fa56ba076bf1ee07446363a13f933056c9ca2ef18e02b7733ee8d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91b6f73e0b587543bd75c204a9bd6f2f5f7d5354263f287288ea263651ce4e26\",\"dweb:/ipfs/QmZmJXVuPKB5zt1u749GJmLhtSbTyk6v5GS9itoqtY56GD\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.10;\n\ninterface IRankedMintingToken {\n    event RankedClaimed(address indexed user, uint256 term, uint256 rank);\n\n    event MintClaimed(address indexed user, uint256 rewardAmount);\n\n    function claimMintReward() external;\n}",
+  "sourcePath": "/Users/chrismanning/Desktop/SolidityRepo/Production/XEN-crypto/contracts/IRankedMintingToken.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/IRankedMintingToken.sol",
+    "exportedSymbols": {
+      "IRankedMintingToken": [
+        3630
+      ]
+    },
+    "id": 3631,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3612,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IRankedMintingToken",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 3630,
+        "linearizedBaseContracts": [
+          3630
+        ],
+        "name": "IRankedMintingToken",
+        "nameLocation": "68:19:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "eventSelector": "2445f37ddceadb5366d5dcdb437bcf6cca770d1e85170e268baf07da768525a7",
+            "id": 3620,
+            "name": "RankedClaimed",
+            "nameLocation": "100:13:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3619,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3614,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "130:4:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3620,
+                  "src": "114:20:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3613,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "114:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3616,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "term",
+                  "nameLocation": "144:4:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3620,
+                  "src": "136:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3615,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "136:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3618,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "rank",
+                  "nameLocation": "158:4:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3620,
+                  "src": "150:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3617,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "150:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "113:50:9"
+            },
+            "src": "94:70:9"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "d74752b13281df13701575f3a507e9b1242e0b5fb040143211c481c1fce573a6",
+            "id": 3626,
+            "name": "MintClaimed",
+            "nameLocation": "176:11:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3625,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3622,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "204:4:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3626,
+                  "src": "188:20:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3621,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "188:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3624,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "rewardAmount",
+                  "nameLocation": "218:12:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3626,
+                  "src": "210:20:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3623,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "210:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "187:44:9"
+            },
+            "src": "170:62:9"
+          },
+          {
+            "functionSelector": "52c7f8dc",
+            "id": 3629,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "claimMintReward",
+            "nameLocation": "247:15:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3627,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "262:2:9"
+            },
+            "returnParameters": {
+              "id": 3628,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "273:0:9"
+            },
+            "scope": 3630,
+            "src": "238:36:9",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3631,
+        "src": "58:218:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:244:9"
+  },
+  "legacyAST": {
+    "absolutePath": "project:/contracts/IRankedMintingToken.sol",
+    "exportedSymbols": {
+      "IRankedMintingToken": [
+        3630
+      ]
+    },
+    "id": 3631,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 3612,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".10"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:24:9"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IRankedMintingToken",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "id": 3630,
+        "linearizedBaseContracts": [
+          3630
+        ],
+        "name": "IRankedMintingToken",
+        "nameLocation": "68:19:9",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "anonymous": false,
+            "eventSelector": "2445f37ddceadb5366d5dcdb437bcf6cca770d1e85170e268baf07da768525a7",
+            "id": 3620,
+            "name": "RankedClaimed",
+            "nameLocation": "100:13:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3619,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3614,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "130:4:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3620,
+                  "src": "114:20:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3613,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "114:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3616,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "term",
+                  "nameLocation": "144:4:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3620,
+                  "src": "136:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3615,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "136:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3618,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "rank",
+                  "nameLocation": "158:4:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3620,
+                  "src": "150:12:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3617,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "150:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "113:50:9"
+            },
+            "src": "94:70:9"
+          },
+          {
+            "anonymous": false,
+            "eventSelector": "d74752b13281df13701575f3a507e9b1242e0b5fb040143211c481c1fce573a6",
+            "id": 3626,
+            "name": "MintClaimed",
+            "nameLocation": "176:11:9",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 3625,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 3622,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "user",
+                  "nameLocation": "204:4:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3626,
+                  "src": "188:20:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 3621,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "188:7:9",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 3624,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "rewardAmount",
+                  "nameLocation": "218:12:9",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 3626,
+                  "src": "210:20:9",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 3623,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "210:7:9",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "187:44:9"
+            },
+            "src": "170:62:9"
+          },
+          {
+            "functionSelector": "52c7f8dc",
+            "id": 3629,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "claimMintReward",
+            "nameLocation": "247:15:9",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 3627,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "262:2:9"
+            },
+            "returnParameters": {
+              "id": 3628,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "273:0:9"
+            },
+            "scope": 3630,
+            "src": "238:36:9",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 3631,
+        "src": "58:218:9",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:244:9"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.17+commit.8df45f5f.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2022-10-25T16:34:42.853Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
