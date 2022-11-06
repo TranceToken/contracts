@@ -1,9 +1,9 @@
 
 ## Installation
 
-Clone repo`git clone git@github.com:FairCrypto/XEN-crypto.git`
+Clone repo`git clone https://github.com/TranceToken/contracts.git TranceTokenContracts`
 
-`cd XEN-crypto`
+`cd TranceTokenContracts`
 
 Install dependencies `npm i`
 
