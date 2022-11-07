@@ -14,7 +14,7 @@ import "./IMerkleDistributor.sol";
 
 
 
-contract TRANCECrytpo is Context, IRankedMintingToken, IStakingToken, IBurnableToken, ERC20("TRANCE TOKEN", "TRANCE") {
+contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableToken, ERC20("TRANCE Crypto", "TRANCE") {
     using Math for uint256;
     using ABDKMath64x64 for int128;
     using ABDKMath64x64 for uint256;
@@ -40,7 +40,6 @@ contract TRANCECrytpo is Context, IRankedMintingToken, IStakingToken, IBurnableT
     // INTERNAL TYPE TO DESCRIBE A XEN MINT INFO
     struct MintInfo {
         address user;
-        bool claimed;
         uint256 amount;
     }
 
@@ -63,23 +62,22 @@ contract TRANCECrytpo is Context, IRankedMintingToken, IStakingToken, IBurnableT
     uint256 public constant MAX_TERM_START = 100 * SECONDS_IN_DAY;
     uint256 public constant MAX_TERM_END = 1_000 * SECONDS_IN_DAY;
 
-    uint256 public constant START_TIME = 1666456384;
-    //10/22/2022 @ 4:33pm UTC
-
-    uint256 public constant WITHDRAWAL_WINDOW_DAYS = 365;
     uint256 public constant MAX_PENALTY_PCT = 99;
 
     uint256 public constant XEN_MIN_STAKE = 0;
 
     uint256 public constant XEN_MIN_BURN = 0;
 
-    uint256 public constant XEN_APY_START = 37;
+    uint256 public constant XEN_APY_START = 20;
     uint256 public constant XEN_APY_DAYS_STEP = 365;
     uint256 public constant XEN_APY_END = 15;
-
+/* 
+    string public constant AUTHORS = "@MrJackLevin @lbelyaev faircrypto.org";
+ */
     // PUBLIC STATE, READABLE VIA NAMESAKE GETTERS
     bytes32 public immutable merkleRoot;
     uint256 public immutable genesisTs;
+    uint256 public globalRank = GENESIS_RANK;
     uint256 public activeMinters;
     uint256 public activeStakes;
     uint256 public totalXenStaked;
@@ -96,7 +94,7 @@ contract TRANCECrytpo is Context, IRankedMintingToken, IStakingToken, IBurnableT
         merkleRoot = merkleRoot_;
     }
 
-    // PRIVATE METHODS
+
 
     /**
      * @dev cleans up User Mint storage (gets some Gas credit;))
@@ -185,7 +183,6 @@ contract TRANCECrytpo is Context, IRankedMintingToken, IStakingToken, IBurnableT
         // create and store new MintInfo
         MintInfo memory mintInfo = MintInfo({
             user: _msgSender(),
-            claimed: true,
             amount: _amount
         });
         userMints[_msgSender()] = mintInfo;
@@ -217,8 +214,7 @@ contract TRANCECrytpo is Context, IRankedMintingToken, IStakingToken, IBurnableT
         require(other != address(0), "CRank: Cannot share with zero address");
         require(pct > 0, "CRank: Cannot share zero percent");
         require(pct < 101, "CRank: Cannot share 100+ percent");
-        require(mintInfo.claimed == true, "CRank: No mint exists");
-        require(block.timestamp > START_TIME, "CRank: Mint maturity not reached");
+        require(mintInfo.amount > 0, "CRank: No mint exists");
 
         // calculate reward
         uint256 rewardAmount = mintInfo.amount;
@@ -241,8 +237,7 @@ contract TRANCECrytpo is Context, IRankedMintingToken, IStakingToken, IBurnableT
         MintInfo memory mintInfo = userMints[_msgSender()];
         // require(pct > 0, "CRank: Cannot share zero percent");
         require(pct < 101, "CRank: Cannot share >100 percent");
-        require(mintInfo.claimed == true, "CRank: No mint exists");
-        require(block.timestamp > START_TIME, "CRank: Mint maturity not reached");
+        require(mintInfo.amount > 0, "CRank: No mint exists");
 
         // calculate reward
         uint256 rewardAmount = mintInfo.amount;
