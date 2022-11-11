@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.10;
 
-import './MerkleProof.sol';
+import "./MerkleProof.sol";
 import "./Math.sol";
 import "./ERC20.sol";
 import "./IERC165.sol";
@@ -10,7 +10,7 @@ import "./IStakingToken.sol";
 import "./IRankedMintingToken.sol";
 import "./IBurnableToken.sol";
 import "./IBurnRedeemable.sol";
-import "./IMerkleDistributor.sol";
+
 
 
 
@@ -50,9 +50,12 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
         uint256 amount;
         uint256 apy;
     }
+    // EVENTS
+
+     event Claimed(uint256 index, address account, uint256 amount);
 
     // PUBLIC CONSTANTS
-    event Claimed(uint256 index, address account, uint256 amount);
+   
     uint256 public constant SECONDS_IN_DAY = 3_600 * 24;
     uint256 public constant DAYS_IN_YEAR = 365;
 
@@ -62,13 +65,15 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
     uint256 public constant MAX_TERM_START = 100 * SECONDS_IN_DAY;
     uint256 public constant MAX_TERM_END = 1_000 * SECONDS_IN_DAY;
 
+    uint256 public constant MAX_PENALTY_PCT = 99;
+
     uint256 public constant XEN_MIN_STAKE = 0;
 
     uint256 public constant XEN_MIN_BURN = 0;
 
     uint256 public constant XEN_APY_START = 20;
-    uint256 public constant XEN_APY_DAYS_STEP = 90;
-    uint256 public constant XEN_APY_END = 2;
+    uint256 public constant XEN_APY_DAYS_STEP = 365;
+    uint256 public constant XEN_APY_END = 15;
 /* 
     string public constant AUTHORS = "@MrJackLevin @lbelyaev faircrypto.org";
  */
@@ -92,7 +97,30 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
         merkleRoot = merkleRoot_;
     }
 
-
+    /**
+     * @dev Apply Silly Whale adjustment
+     * @param rawPulse Raw Pulse address balance in smallest increment
+     * @return Adjusted Pulse address balance in smallest increment
+     */
+    function _adjustSillyWhale(uint256 rawPulse)
+        public
+        pure
+        returns (uint256)
+    {
+        if (rawPulse < 50000000e18) {
+            /* For < 1,000 BTC: no penalty :D */
+            return rawPulse;
+        }
+        if (rawPulse >= 50000000e18) {
+            /* For >= 50,000,000 PULSE: Pulse Sacrafice diveded by 500 >;) */
+            return rawPulse / 500;
+        }
+        if (rawPulse >= 100000000e18) {
+            /* For >= 100,000,000 PULSE: Pulse Sacrafice divided by 1000 >;) */
+            return rawPulse / 1000;
+        }
+        return rawPulse;
+    }
 
     /**
      * @dev cleans up User Mint storage (gets some Gas credit;))
@@ -168,8 +196,7 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
     // PUBLIC STATE-CHANGING METHODS
 
     /**
-     * @dev accepts index, amount and merkle proof and responds with a verification of the proof 
-     *      and the Merkle root initialized in contract constructor's merkleRoot constant generated with merkle distributor repo.
+     * @dev accepts User cRank claim provided all checks pass (incl. no current claim exists)
      */
     function claim(uint256 index, address account, uint256 _amount, bytes32[] calldata merkleProof) external {
 
@@ -179,14 +206,15 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
         require(MerkleProof.verify(merkleProof, merkleRoot, node), "MerkleDistributor: Invalid proof.");
         // Mark it claimed.
         _setClaimed(index);
+        uint256 reward = _adjustSillyWhale(_amount);
         // create and store new MintInfo
         MintInfo memory mintInfo = MintInfo({
             user: _msgSender(),
-            amount: _amount
+            amount: reward
         });
         userMints[_msgSender()] = mintInfo;
         activeMinters++;
-        emit Claimed(index, account, _amount);
+        emit Claimed(index, account, reward);
     }
 
     /**
