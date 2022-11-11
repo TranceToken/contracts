@@ -61,7 +61,7 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
     uint256 public constant MIN_TERM = 1 * SECONDS_IN_DAY - 1;
     uint256 public constant MAX_TERM_START = 100 * SECONDS_IN_DAY;
     uint256 public constant MAX_TERM_END = 1_000 * SECONDS_IN_DAY;
-
+    uint256 public constant WITHDRAWAL_WINDOW_DAYS = 7;
     uint256 public constant MAX_PENALTY_PCT = 99;
 
     uint256 public constant XEN_MIN_STAKE = 0;
@@ -69,8 +69,8 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
     uint256 public constant XEN_MIN_BURN = 0;
 
     uint256 public constant XEN_APY_START = 20;
-    uint256 public constant XEN_APY_DAYS_STEP = 365;
-    uint256 public constant XEN_APY_END = 15;
+    uint256 public constant XEN_APY_DAYS_STEP = 90;
+    uint256 public constant XEN_APY_END = 2;
 /* 
     string public constant AUTHORS = "@MrJackLevin @lbelyaev faircrypto.org";
  */
