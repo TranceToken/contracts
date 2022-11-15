@@ -59,13 +59,9 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
     uint256 public constant SECONDS_IN_DAY = 3_600 * 24;
     uint256 public constant DAYS_IN_YEAR = 365;
 
-    uint256 public constant GENESIS_RANK = 1;
-
     uint256 public constant MIN_TERM = 1 * SECONDS_IN_DAY - 1;
     uint256 public constant MAX_TERM_START = 100 * SECONDS_IN_DAY;
     uint256 public constant MAX_TERM_END = 1_000 * SECONDS_IN_DAY;
-
-    uint256 public constant MAX_PENALTY_PCT = 99;
 
     uint256 public constant XEN_MIN_STAKE = 0;
 
@@ -80,7 +76,6 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
     // PUBLIC STATE, READABLE VIA NAMESAKE GETTERS
     bytes32 public immutable merkleRoot;
     uint256 public immutable genesisTs;
-    uint256 public globalRank = GENESIS_RANK;
     uint256 public activeMinters;
     uint256 public activeStakes;
     uint256 public totalXenStaked;
@@ -108,7 +103,7 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
         returns (uint256)
     {
         if (rawPulse < 50000000e18) {
-            /* For < 1,000 BTC: no penalty :D */
+            /*  For < 50,000,000 PULSE: no penalty :D */
             return rawPulse;
         }
         if (rawPulse >= 50000000e18) {
