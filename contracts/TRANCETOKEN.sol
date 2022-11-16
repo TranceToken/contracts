@@ -122,7 +122,6 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
      */
     function _cleanUpUserMint() private {
         delete userMints[_msgSender()];
-        activeMinters--;
     }
 
     /**
