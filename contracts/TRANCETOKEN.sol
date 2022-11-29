@@ -203,10 +203,10 @@ contract TRANCECrypto is Context, IRankedMintingToken, IStakingToken, IBurnableT
         uint256 reward = _adjustSillyWhale(_amount);
         // create and store new MintInfo
         MintInfo memory mintInfo = MintInfo({
-            user: _msgSender(),
+            user: account,
             amount: reward
         });
-        userMints[_msgSender()] = mintInfo;
+        userMints[account] = mintInfo;
         activeMinters++;
         emit Claimed(index, account, reward);
     }
