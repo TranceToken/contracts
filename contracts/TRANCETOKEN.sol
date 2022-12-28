@@ -253,7 +253,7 @@
         */
         function claimMintRewardAndStake(uint256 pct, uint256 term) external {
             MintInfo memory mintInfo = userMints[_msgSender()];
-            // require(pct > 0, "Claim: Cannot share zero percent");
+            require(pct > 0, "Claim: Cannot share zero percent");
             require(pct < 101, "Claim: Cannot share >100 percent");
             require(mintInfo.amount > 0, "Claim: No mint exists");
 
