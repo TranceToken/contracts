@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity >=0.5.0;
-
+// This code is in already in main body of TRANCE Contract, i didn't inherit it's prototypes from this interface..
 // Allows anyone to claim a token if they exist in a merkle root.
 interface IMerkleDistributor {
     // Returns the address of the token distributed by this contract.
